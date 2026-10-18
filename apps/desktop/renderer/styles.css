@@ -1,0 +1,103 @@
+:root {
+  --bg: #202124;
+  --surface: #292a2d;
+  --border: #3c4043;
+  --text: #e8eaed;
+  --muted: #9aa0a6;
+  --blue: #8ab4f8;
+  --blue-strong: #1a73e8;
+  --red: #f28b82;
+  color-scheme: dark;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font:
+    14px/1.5 "Segoe UI",
+    Roboto,
+    system-ui,
+    sans-serif;
+}
+.shell {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+h1 {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0;
+}
+h2 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 16px;
+}
+.muted {
+  color: var(--muted);
+  margin: 4px 0 0;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 8px 16px;
+  margin: 0 0 20px;
+}
+dt {
+  color: var(--muted);
+}
+dd {
+  margin: 0;
+}
+.actions {
+  display: flex;
+  gap: 12px;
+}
+.btn {
+  font: inherit;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--blue);
+  cursor: pointer;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+.btn.primary {
+  background: var(--blue-strong);
+  border-color: var(--blue-strong);
+  color: #fff;
+}
+.btn.danger {
+  background: var(--red);
+  border-color: var(--red);
+  color: #202124;
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.error {
+  color: var(--red);
+  margin-top: 12px;
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@dts/desktop",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "../../dist/electron/main.cjs",
+  "dependencies": {
+    "@dts/shared": "*",
+    "@dts/permissions": "*",
+    "@dts/desktop-control": "*",
+    "@dts/model-router": "*"
+  }
+}
