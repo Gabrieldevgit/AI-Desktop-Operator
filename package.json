@@ -1,0 +1,44 @@
+{
+  "name": "dts-live-desktop-operator",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "audit:deps": "npm audit --audit-level=high",
+    "ci": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build",
+    "dev:renderer": "vite --config apps/desktop/vite.config.ts",
+    "build:renderer": "vite build --config apps/desktop/vite.config.ts",
+    "build:electron": "esbuild apps/desktop/electron/main.ts apps/desktop/preload/preload.ts --bundle --platform=node --format=cjs --external:electron --out-extension:.js=.cjs --entry-names=[name] --outdir=dist/electron",
+    "build": "npm run build:renderer && npm run build:electron",
+    "start": "npm run build && electron apps/desktop"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "electron": "^33.0.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.3.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "typescript": "^5.5.0",
+    "typescript-eslint": "^8.0.0",
+    "vite": "^5.4.0",
+    "vitest": "^2.0.0",
+    "esbuild": "^0.23.0"
+  }
+}
