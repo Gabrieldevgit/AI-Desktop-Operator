@@ -20,7 +20,7 @@
     "ci": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build",
     "dev:renderer": "vite --config apps/desktop/vite.config.ts",
     "build:renderer": "vite build --config apps/desktop/vite.config.ts",
-    "build:electron": "esbuild apps/desktop/electron/main.ts apps/desktop/preload/preload.ts --bundle --platform=node --format=cjs --external:electron --out-extension:.js=.cjs --entry-names=[name] --outdir=dist/electron",
+    "build:electron": "esbuild apps/desktop/electron/main.ts apps/desktop/preload/preload.ts --bundle --platform=node --format=cjs --external:electron --external:koffi --out-extension:.js=.cjs --entry-names=[name] --outdir=dist/electron",
     "build": "npm run build:renderer && npm run build:electron",
     "start": "npm run build && electron apps/desktop"
   },
